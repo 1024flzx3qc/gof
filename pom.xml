@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>cn.zjz</groupId>
+  <artifactId>ssm</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>ssm Maven Webapp</name>
+
+  <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
+      <junit.version>4.11</junit.version>
+      <spring.version>4.3.20.RELEASE</spring.version>
+      <mybatis.version>3.4.6</mybatis.version>
+      <spring-mybatis.version>1.3.2</spring-mybatis.version>
+      <slf4j.version>1.7.25</slf4j.version>
+      <log4j.version>1.2.17</log4j.version>
+      <mysql.version>5.1.39</mysql.version>
+      <javaee.version>8.0</javaee.version>
+      <fastjson.version>1.2.42</fastjson.version>
+      <druid.version>1.1.10</druid.version>
+      <jstl.version>1.2</jstl.version>
+      <sevlet.version>2.5</sevlet.version>
+      <jsp.version>2.0</jsp.version>
+      <spring-redis.version>1.8.16.RELEASE</spring-redis.version>
+      <redis.version>2.9.0</redis.version>
+      <jackson.version>2.6.6</jackson.version>
+  </properties>
+
+  <dependencies>
+     <!-- slf4j-api -->
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>${slf4j.version}</version>
+      </dependency>
+      <!--log4j-->
+      <dependency>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+          <version>${log4j.version}</version>
+      </dependency>
+      <!--slf4j-log4j12-->
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+          <version>${slf4j.version}</version>
+      </dependency>
+      <!-- junit -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <!-- spring-core -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-core</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+      <!-- spring-tx -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-tx</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+      <!-- srping-aop -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-aop</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+      <!-- spring-aspects -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-aspects</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+      <!-- spring-context -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+      <!-- srping-oxm -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-oxm</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+      <!-- spring-test -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-test</artifactId>
+          <version>${spring.version}</version>
+          <scope>test</scope>
+      </dependency>
+
+      <!-- spring-jdbc -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-jdbc</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+      <!-- spring-web -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-web</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+      <!-- spring-webmvc -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-webmvc</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+      <!-- springMVC ResponseBody 返回json数据,这里使用阿里的fastjson做转换-->
+      <!--&lt;!&ndash; jackson-core &ndash;&gt;
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-core</artifactId>
+          <version>${jackson.version}</version>
+      </dependency>
+      &lt;!&ndash; jackson-databind &ndash;&gt;
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-databind</artifactId>
+          <version>${jackson.version}</version>
+          <exclusions>
+              <exclusion>
+                  <artifactId>jackson-annotations</artifactId>
+                  <groupId>com.fasterxml.jackson.core</groupId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      &lt;!&ndash; jackson-annotations &ndash;&gt;
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-annotations</artifactId>
+          <version>${jackson.version}</version>
+      </dependency>-->
+      <!-- mybatis -->
+      <dependency>
+          <groupId>org.mybatis</groupId>
+          <artifactId>mybatis</artifactId>
+          <version>${mybatis.version}</version>
+      </dependency>
+      <!-- mybatis-spring -->
+      <dependency>
+          <groupId>org.mybatis</groupId>
+          <artifactId>mybatis-spring</artifactId>
+          <version>${spring-mybatis.version}</version>
+      </dependency>
+      <!-- mbg -->
+      <dependency>
+          <groupId>org.mybatis.generator</groupId>
+          <artifactId>mybatis-generator-core</artifactId>
+          <version>1.3.5</version>
+      </dependency>
+      <!-- pagehelper -->
+      <dependency>
+          <groupId>com.github.pagehelper</groupId>
+          <artifactId>pagehelper</artifactId>
+          <version>5.1.2</version>
+      </dependency>
+      <!-- javaee api -->
+      <dependency>
+          <groupId>javax</groupId>
+          <artifactId>javaee-api</artifactId>
+          <version>${javaee.version}</version>
+          <scope>provided</scope>
+      </dependency>
+      <!-- mysql -->
+      <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+          <version>${mysql.version}</version>
+      </dependency>
+      <!-- fastjson -->
+      <dependency>
+          <groupId>com.alibaba</groupId>
+          <artifactId>fastjson</artifactId>
+          <version>${fastjson.version}</version>
+      </dependency>
+      <!-- 数据库连接池druid -->
+      <dependency>
+          <groupId>com.alibaba</groupId>
+          <artifactId>druid</artifactId>
+          <version>${druid.version}</version>
+      </dependency>
+      <!-- jstl -->
+      <dependency>
+          <groupId>jstl</groupId>
+          <artifactId>jstl</artifactId>
+          <version>${jstl.version}</version>
+      </dependency>
+      <!-- jsp -->
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>jsp-api</artifactId>
+          <version>${jsp.version}</version>
+          <exclusions>
+              <exclusion>
+                  <artifactId>servlet-api</artifactId>
+                  <groupId>javax.servlet</groupId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      <!-- sevlet-api -->
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+          <version>${sevlet.version}</version>
+      </dependency>
+      <!-- spring-data-redis -->
+      <dependency>
+          <groupId>org.springframework.data</groupId>
+          <artifactId>spring-data-redis</artifactId>
+          <version>${spring-redis.version}</version>
+          <exclusions>
+              <exclusion>
+                  <artifactId>slf4j-api</artifactId>
+                  <groupId>org.slf4j</groupId>
+              </exclusion>
+              <exclusion>
+                  <artifactId>jcl-over-slf4j</artifactId>
+                  <groupId>org.slf4j</groupId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+      <!-- redis -->
+      <dependency>
+          <groupId>redis.clients</groupId>
+          <artifactId>jedis</artifactId>
+          <version>${redis.version}</version>
+      </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>ssm</finalName>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+          <plugin>
+              <groupId>org.apache.tomcat.maven</groupId>
+              <artifactId>tomcat7-maven-plugin</artifactId>
+              <version>2.2</version>
+          </plugin>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.2.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

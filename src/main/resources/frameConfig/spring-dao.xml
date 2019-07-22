@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+    <!-- java 配置文件 该标签在Spring配置文件中只能存在一份 -->
+    <context:property-placeholder location="classpath:properties/*.properties"/>
+
+    <!-- 配置alibaba数据库连接池-->
+    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="maxActive" value="10"/>
+        <property name="minIdle" value="5"/>
+    </bean>
+
+
+    <!-- spring-mybatis 整合-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="druidDataSource"></property>
+        <property name="configLocation" value="classpath:frameConfig/mybatis.xml"></property>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+        <!-- 给实体类设置别名 -->
+        <property name="typeAliasesPackage" value="cn.zjz.ssm.pojo"></property>
+
+    </bean>
+
+    <!-- mybatis mapper接口所在包 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="cn.zjz.ssm.mapper"/>
+    </bean>
+
+</beans>
